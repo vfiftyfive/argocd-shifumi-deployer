@@ -13,3 +13,7 @@ spec:
     path: deploy/kubernetes/overlay/lab/kafka
   destination:
     server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
