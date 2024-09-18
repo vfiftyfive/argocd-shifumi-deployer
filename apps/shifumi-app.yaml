@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: shifumi-overlay
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/vfiftyfive/shifumi-game
+    targetRevision: argocd-ready
+    path: deploy/kubernetes/overlay/lab/shifumi
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: shifumi
+  dependencies:
+    - name: kafka
