@@ -14,8 +14,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: shifumi
-  dependencies:
-    - name: kafka
   syncPolicy:
     automated:
       prune: true
