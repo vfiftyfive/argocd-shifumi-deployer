@@ -6,6 +6,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /spec/source/targetRevision
   project: default
   source:
     repoURL: https://github.com/vfiftyfive/shifumi-game
